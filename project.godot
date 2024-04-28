@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Soulforge"
+config/name="SoulForged"
 config/description="Forge Yourself Into the Instrument of Destinies"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"

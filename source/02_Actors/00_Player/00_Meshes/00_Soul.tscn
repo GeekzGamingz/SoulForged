@@ -2,70 +2,42 @@
 
 [ext_resource type="PackedScene" uid="uid://cmxdxcwaydhfg" path="res://assets/00_Meshes/00_Soul/00_Player/playersoul.gltf" id="1_1v1ad"]
 
+[sub_resource type="Animation" id="Animation_c47j7"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh_Soul/Skeleton3D:Core")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mesh_Soul/Skeleton3D:Torus")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_3glkm"]
 resource_name = "idle"
 length = 4.8
 loop_mode = 1
 step = 1.2
-tracks/0/type = "position_3d"
+tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Mesh_Soul/Skeleton3D:Core")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.2, 1, 0, 0.710916, 0, 0.703277, 2.4, 1, 0, 0.999941, 0, -0.0108994, 3.6, 1, 0, -0.698415, 0, 0.715693)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Mesh_Soul/Skeleton3D:Core")
+tracks/1/path = NodePath("Mesh_Soul/Skeleton3D:Torus")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.2, 1, 0, 0.710916, 0, 0.703277, 2.4, 1, 0, 0.999941, 0, -0.0108994, 3.6, 1, 0, -0.698415, 0, 0.715693)
-tracks/2/type = "position_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Mesh_Soul/Skeleton3D:Torus")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0)
-tracks/3/type = "rotation_3d"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Mesh_Soul/Skeleton3D:Torus")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.2, 1, 0, -0.710977, 0, 0.703215, 2.4, 1, 0, 0.999987, 0, 0.0050702, 3.6, 1, 0, 0.699333, 0, 0.714796)
-
-[sub_resource type="Animation" id="Animation_c47j7"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh_Soul/Skeleton3D:Core")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Mesh_Soul/Skeleton3D:Core")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
-tracks/2/type = "position_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Mesh_Soul/Skeleton3D:Torus")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0)
-tracks/3/type = "rotation_3d"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Mesh_Soul/Skeleton3D:Torus")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.2, 1, 0, -0.710977, 0, 0.703215, 2.4, 1, 0, 0.999987, 0, 0.0050702, 3.6, 1, 0, 0.699333, 0, 0.714796)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yw7cp"]
 _data = {
@@ -75,10 +47,6 @@ _data = {
 
 [node name="Mesh_Soul" instance=ExtResource("1_1v1ad")]
 
-[node name="Skeleton3D" parent="Mesh_Soul" index="0"]
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/scale = Vector3(1, 1, 1)
-
 [node name="AnimationPlayers" type="Node3D" parent="." index="1"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationPlayers" index="0"]
@@ -86,3 +54,4 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_yw7cp")
 }
+autoplay = "idle"
