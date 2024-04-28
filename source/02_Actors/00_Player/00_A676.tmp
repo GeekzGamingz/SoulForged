@@ -1,18 +1,18 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvdaacul787gp"]
 
-[ext_resource type="Script" path="res://source/02_Actors/00_Player/02_Player.gd" id="1_3b0j7"]
 [ext_resource type="PackedScene" uid="uid://ivod6j56ow82" path="res://source/02_Actors/00_Player/00_Meshes/00_Soul.tscn" id="1_3cxfw"]
-[ext_resource type="Script" path="res://source/02_Actors/00_Player/02_FSM-Basic.gd" id="2_3etm8"]
+[ext_resource type="Script" path="res://source/02_Actors/00_Player/00_Player.gd" id="1_twbi2"]
+[ext_resource type="Script" path="res://source/02_Actors/00_Player/01_FSM-Basic.gd" id="3_n1fyg"]
 [ext_resource type="PackedScene" uid="uid://mpkt245hqfmb" path="res://source/05_Interface/00_Camera/00_CameraArm.tscn" id="3_sslca"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mxpav"]
 radius = 0.25
 
 [node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_3b0j7")
+script = ExtResource("1_twbi2")
 
 [node name="FSM_Player" type="Node3D" parent="."]
-script = ExtResource("2_3etm8")
+script = ExtResource("3_n1fyg")
 
 [node name="Mesh_Player" type="Node3D" parent="."]
 

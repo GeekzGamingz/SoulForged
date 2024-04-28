@@ -7,7 +7,7 @@ class_name Actor
 var found_wall: bool = false
 var found_ledge: bool = false
 #OnReady Variables
-@onready var camera_arm = $CameraArm
+@onready var camera_arm = $Camera_Arm
 #Detectors
 @onready var detectors_ground = $Detectors_World/Detectors_Ground
 @onready var detectors_wall = $Detectors_World/Detectors_Wall
