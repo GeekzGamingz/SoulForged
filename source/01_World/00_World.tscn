@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs6lujsvn3f4u"]
+
+[ext_resource type="Texture2D" uid="uid://dcmey5uruwk0w" path="res://assets/01_Textures/00_Grass/gwass.png" id="1_x1cky"]
+[ext_resource type="PackedScene" uid="uid://dvdaacul787gp" path="res://source/02_Actors/00_Player/00_Player.tscn" id="2_obxno"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apb88"]
+albedo_texture = ExtResource("1_x1cky")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s8es5"]
+size = Vector2(512, 512)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_n0lib"]
+data = PackedVector3Array(256, 0, 256, -256, 0, 256, 256, 0, -256, -256, 0, 256, -256, 0, -256, 256, 0, -256)
+
+[node name="WorldRoot" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_apb88")
+mesh = SubResource("PlaneMesh_s8es5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_n0lib")
+
+[node name="Player" parent="." instance=ExtResource("2_obxno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
