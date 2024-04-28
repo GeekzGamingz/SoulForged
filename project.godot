@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Soulforge"
+config/description="Forge Yourself Into the Instrument of Destinies"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.png"
+
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_2="player"
+3d_physics/layer_3="enemy"
+3d_physics/layer_4="npc"
+3d_physics/layer_5="object"
+3d_physics/layer_6="event"
