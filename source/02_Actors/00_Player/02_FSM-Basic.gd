@@ -2,7 +2,7 @@
 extends FSM_Player
 #------------------------------------------------------------------------------#
 #Basic Movement
-func basic_move():
+func move_basic():
 	#Idle
 	if p.velocity.x == 0 && p.check_grounded(): return states.idle
 	#Verticle Movement

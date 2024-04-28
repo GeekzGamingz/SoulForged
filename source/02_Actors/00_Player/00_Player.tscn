@@ -17,6 +17,7 @@ script = ExtResource("2_3etm8")
 [node name="Mesh_Player" type="Node3D" parent="."]
 
 [node name="Mesh_Soul" parent="Mesh_Player" instance=ExtResource("1_3cxfw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Camera_Arm" parent="." instance=ExtResource("3_sslca")]
 
@@ -28,47 +29,48 @@ shape = SubResource("SphereShape3D_mxpav")
 [node name="Detectors_Ground" type="Node3D" parent="Detectors_World"]
 
 [node name="DG_Center" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.250011, 0)
-target_position = Vector3(0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+target_position = Vector3(0, -0.3, 0)
 
 [node name="DG_Front" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
-target_position = Vector3(0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+target_position = Vector3(0, -0.255, 0)
 
 [node name="DG_Back" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
-target_position = Vector3(0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+target_position = Vector3(0, -0.255, 0)
 
 [node name="DG_Left" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
-target_position = Vector3(0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+target_position = Vector3(0, -0.255, 0)
 
 [node name="DG_Right" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
-target_position = Vector3(0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+target_position = Vector3(0, -0.255, 0)
 
 [node name="Detectors_Wall" type="Node3D" parent="Detectors_World"]
 
 [node name="DW_Front" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+target_position = Vector3(0, 0, 0.25)
+debug_shape_thickness = 3
+
+[node name="DW_Back" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+target_position = Vector3(0, 0, -0.25)
+
+[node name="DW_Left" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
 target_position = Vector3(0.25, 0, 0)
 
-[node name="DW_Back" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
+[node name="DW_Right" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
 target_position = Vector3(-0.25, 0, 0)
-
-[node name="DW_Right" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
-target_position = Vector3(0, 0, 0.25)
-
-[node name="DW_Left" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
-target_position = Vector3(0, 0, -0.25)
 
 [node name="Outputs" type="Node3D" parent="."]
 
 [node name="Output_State" type="Label3D" parent="Outputs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 billboard = 1
 text = "state"
 font_size = 20

@@ -35,20 +35,20 @@ func state_logic(delta):
 func transitions(_delta):
 	match(state):
 	#Basic Movement
-		states.idle: return basic_move()
+		states.idle: return move_basic()
 		states.walk_f, states.walk_b, states.walk_l, states.walk_r:
-			return basic_move()
+			return move_basic()
 		states.run, states.strafe_l, states.strafe_r, states.backstep:
-			return basic_move()
-		states.fall: return basic_move()
-		states.jump: return basic_move()
+			return move_basic()
+		states.fall: return move_basic()
+		states.jump: return move_basic()
 #Enter State
 @warning_ignore("unused_parameter")
 func state_enter(state_new, state_old):
 	match(state_new):
 		states.idle: p.anim_player.play("idle")
-		states.walk_f, states.walk_b, states.walk_l, states.walk_r: pass
-			#p.anim_player.play("float_f")
+		states.walk_f, states.walk_b, states.walk_l, states.walk_r:
+			p.anim_player.play("float_f")
 		states.strafe_l: p.max_speed = p.strafe_speed
 		states.strafe_r: p.max_speed = p.strafe_speed
 		states.backstep: p.max_speed = p.strafe_speed
@@ -60,6 +60,8 @@ func state_exit(state_old, state_new):
 #------------------------------------------------------------------------------#
 #Verbose Transitions
 #Basic Movement
-func basic_move(): pass
+func move_basic(): pass
+#Swim Movement
+func move_swim(): pass
 #Fly Movement
-func fly_move(): pass
+func move_fly(): pass
