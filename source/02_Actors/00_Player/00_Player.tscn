@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvdaacul787gp"]
+
+[ext_resource type="PackedScene" uid="uid://ivod6j56ow82" path="res://source/02_Actors/00_Player/00_Meshes/00_Soul.tscn" id="1_3cxfw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mxpav"]
+radius = 0.25
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="FSM_Player" type="Node3D" parent="."]
+
+[node name="Mesh_Soul" parent="." instance=ExtResource("1_3cxfw")]
+
+[node name="Collision_World" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_mxpav")
+
+[node name="Detectors_World" type="Node3D" parent="."]
+
+[node name="Detectors_Ground" type="Node3D" parent="Detectors_World"]
+
+[node name="DG_Center" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.250011, 0)
+target_position = Vector3(0, -0.25, 0)
+
+[node name="DG_Front" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+target_position = Vector3(0, -0.25, 0)
+
+[node name="DG_Back" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+target_position = Vector3(0, -0.25, 0)
+
+[node name="DG_Left" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+target_position = Vector3(0, -0.25, 0)
+
+[node name="DG_Right" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+target_position = Vector3(0, -0.25, 0)
+
+[node name="Detectors_Wall" type="Node3D" parent="Detectors_World"]
+
+[node name="DW_Front" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+target_position = Vector3(0.25, 0, 0)
+
+[node name="DW_Back" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+target_position = Vector3(-0.25, 0, 0)
+
+[node name="DW_Right" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+target_position = Vector3(0, 0, 0.25)
+
+[node name="DW_Left" type="RayCast3D" parent="Detectors_World/Detectors_Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+target_position = Vector3(0, 0, -0.25)
+
+[node name="Outputs" type="Node3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="Outputs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+billboard = 1
+text = "state"
+font_size = 20
+outline_size = 10
+uppercase = true
