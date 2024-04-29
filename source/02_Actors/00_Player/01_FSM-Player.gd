@@ -48,7 +48,10 @@ func state_enter(state_new, state_old):
 	match(state_new):
 		states.idle: p.anim_player.play("idle")
 		states.walk_f, states.walk_b, states.walk_l, states.walk_r:
-			p.anim_player.play("float_f")
+			p.anim_player.play("float_forward")
+		states.run: p.anim_player.play("float_quick")
+		states.jump: p.anim_player.play("jump")
+		states.fall: p.anim_player.play("fall")
 		states.strafe_l: p.max_speed = p.strafe_speed
 		states.strafe_r: p.max_speed = p.strafe_speed
 		states.backstep: p.max_speed = p.strafe_speed
