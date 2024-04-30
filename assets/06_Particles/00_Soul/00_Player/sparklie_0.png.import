@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnqtymnc6s5gt"
-path="res://.godot/imported/playersoul_0.png-85d6730ffe42a8ce09e2f3a5bb8f10bc.ctex"
+uid="uid://dorb6s8jdgltg"
+path="res://.godot/imported/sparklie_0.png-cec69e3c8bc057026e6942f9be9b3091.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,8 +11,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/00_Meshes/00_Soul/00_Player/playersoul_0.png"
-dest_files=["res://.godot/imported/playersoul_0.png-85d6730ffe42a8ce09e2f3a5bb8f10bc.ctex"]
+source_file="res://assets/06_Particles/00_Soul/00_Player/sparklie_0.png"
+dest_files=["res://.godot/imported/sparklie_0.png-cec69e3c8bc057026e6942f9be9b3091.ctex"]
 
 [params]
 

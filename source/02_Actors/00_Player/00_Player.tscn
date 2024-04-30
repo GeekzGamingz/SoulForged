@@ -9,7 +9,9 @@
 radius = 0.35
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_3b0j7")
+rotation_speed = 10
 
 [node name="FSM_Player" type="Node3D" parent="."]
 script = ExtResource("2_3etm8")
@@ -29,24 +31,24 @@ shape = SubResource("SphereShape3D_mxpav")
 [node name="Detectors_Ground" type="Node3D" parent="Detectors_World"]
 
 [node name="DG_Center" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.325, 0)
 target_position = Vector3(0, -0.3, 0)
 
 [node name="DG_Front" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.35)
-target_position = Vector3(0, -0.255, 0)
+target_position = Vector3(0, -0.355, 0)
 
 [node name="DG_Back" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.35)
-target_position = Vector3(0, -0.255, 0)
+target_position = Vector3(0, -0.355, 0)
 
 [node name="DG_Left" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0, 0)
-target_position = Vector3(0, -0.255, 0)
+target_position = Vector3(0, -0.355, 0)
 
 [node name="DG_Right" type="RayCast3D" parent="Detectors_World/Detectors_Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0, 0)
-target_position = Vector3(0, -0.255, 0)
+target_position = Vector3(0, -0.355, 0)
 
 [node name="Detectors_Wall" type="Node3D" parent="Detectors_World"]
 

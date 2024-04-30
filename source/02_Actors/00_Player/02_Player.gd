@@ -27,6 +27,9 @@ func _physics_process(delta):
 #------------------------------------------------------------------------------#
 #Handle Movement Input
 func handle_movement():
+	#Handle Jump
+	if Input.is_action_just_pressed("action_jump") && check_grounded():
+		velocity.y = jump_velocity
 	#Directionals
 	move_direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	move_direction.z = Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")
@@ -39,7 +42,4 @@ func handle_movement():
 		max_speed = run_speed
 	elif Input.is_action_just_released("action_run"):
 		max_speed = walk_speed
-	#Handle Jump
-	if Input.is_action_just_pressed("action_jump") && check_grounded():
-		velocity.y = jump_velocity
 	move_and_slide()

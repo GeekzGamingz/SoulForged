@@ -1,6 +1,6 @@
 #Inherits CharacterBody3D Code
 extends CharacterBody3D
-class_name Kinematics
+class_name Kinematic
 #------------------------------------------------------------------------------#
 #Variables
 #Sync's CharacterBody Gravity with RigidBody

@@ -1,5 +1,5 @@
 #Inherits Kinematics Code
-extends Kinematics
+extends Kinematic
 class_name Actor
 #------------------------------------------------------------------------------#
 #Variables

@@ -1,6 +1,57 @@
-[gd_scene load_steps=9 format=3 uid="uid://ivod6j56ow82"]
+[gd_scene load_steps=19 format=3 uid="uid://ivod6j56ow82"]
 
 [ext_resource type="PackedScene" uid="uid://cmxdxcwaydhfg" path="res://assets/00_Meshes/00_Soul/00_Player/playersoul.gltf" id="1_1v1ad"]
+[ext_resource type="Texture2D" uid="uid://cnqtymnc6s5gt" path="res://assets/00_Meshes/00_Soul/00_Player/playersoul_0.png" id="2_it477"]
+[ext_resource type="ArrayMesh" uid="uid://bpxqrsq24b7tc" path="res://assets/06_Particles/00_Soul/00_Player/sparklie.res" id="3_6ybc7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fscfm"]
+transparency = 1
+albedo_texture = ExtResource("2_it477")
+emission = Color(1, 1, 0, 1)
+backlight = Color(1, 1, 0, 1)
+
+[sub_resource type="Curve" id="Curve_b7x35"]
+min_value = 1.0
+max_value = 1.5
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.502488, 1.25824), -2.87143, -2.87143, 0, 0, Vector2(1, 1.5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_b0tat"]
+curve = SubResource("Curve_b7x35")
+
+[sub_resource type="Curve" id="Curve_6a047"]
+min_value = 0.05
+max_value = 0.5
+_data = [Vector2(0, 0.0598901), 0.0, 0.0, 0, 0, Vector2(0.502488, 0.277472), -2.07074, -2.07074, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_e1uvj"]
+curve = SubResource("Curve_6a047")
+
+[sub_resource type="Curve" id="Curve_lofj7"]
+min_value = 1.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.497512, 1.50549), -4.9273, -4.9273, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_omm20"]
+curve = SubResource("Curve_lofj7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7nmmr"]
+emission_shape = 1
+emission_sphere_radius = 0.05
+gravity = Vector3(0, 1, 0)
+radial_accel_min = 1.0
+radial_accel_max = 1.5
+radial_accel_curve = SubResource("CurveTexture_b0tat")
+tangential_accel_min = 1.0
+tangential_accel_max = 2.0
+tangential_accel_curve = SubResource("CurveTexture_omm20")
+scale_min = 0.05
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_e1uvj")
+turbulence_enabled = true
+turbulence_noise_scale = 1.0
 
 [sub_resource type="Animation" id="Animation_c47j7"]
 length = 0.001
@@ -277,6 +328,69 @@ _data = {
 
 [node name="Mesh_Soul" instance=ExtResource("1_1v1ad")]
 
+[node name="Mesh_Soul" parent="Mesh_Soul/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_fscfm")
+
+[node name="Attachment1" type="BoneAttachment3D" parent="Mesh_Soul/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.236806, 0.136719)
+bone_name = "Sparklies_1"
+bone_idx = 3
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Mesh_Soul/Skeleton3D/Attachment1" index="0"]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_7nmmr")
+draw_pass_1 = ExtResource("3_6ybc7")
+
+[node name="Attachment3" type="BoneAttachment3D" parent="Mesh_Soul/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.273438)
+bone_name = "Sparklies_3"
+bone_idx = 4
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Mesh_Soul/Skeleton3D/Attachment3" index="0"]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_7nmmr")
+draw_pass_1 = ExtResource("3_6ybc7")
+
+[node name="Attachment5" type="BoneAttachment3D" parent="Mesh_Soul/Skeleton3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.236806, 0.136719)
+bone_name = "Sparklies_5"
+bone_idx = 5
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Mesh_Soul/Skeleton3D/Attachment5" index="0"]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_7nmmr")
+draw_pass_1 = ExtResource("3_6ybc7")
+
+[node name="Attachment7" type="BoneAttachment3D" parent="Mesh_Soul/Skeleton3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.236806, -0.136719)
+bone_name = "Sparklies_7"
+bone_idx = 6
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Mesh_Soul/Skeleton3D/Attachment7" index="0"]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_7nmmr")
+draw_pass_1 = ExtResource("3_6ybc7")
+
+[node name="Attachment9" type="BoneAttachment3D" parent="Mesh_Soul/Skeleton3D" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.273438)
+bone_name = "Sparklies_9"
+bone_idx = 7
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Mesh_Soul/Skeleton3D/Attachment9" index="0"]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_7nmmr")
+draw_pass_1 = ExtResource("3_6ybc7")
+
+[node name="Attachment11" type="BoneAttachment3D" parent="Mesh_Soul/Skeleton3D" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.236806, -0.136719)
+bone_name = "Sparklies_11"
+bone_idx = 8
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Mesh_Soul/Skeleton3D/Attachment11" index="0"]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_7nmmr")
+draw_pass_1 = ExtResource("3_6ybc7")
+
 [node name="AnimationPlayers" type="Node3D" parent="." index="1"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationPlayers" index="0"]
@@ -286,3 +400,6 @@ libraries = {
 }
 autoplay = "idle"
 playback_default_blend_time = 0.1
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)

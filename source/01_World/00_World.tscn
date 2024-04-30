@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bs6lujsvn3f4u"]
+[gd_scene load_steps=8 format=3 uid="uid://bs6lujsvn3f4u"]
 
 [ext_resource type="Script" path="res://source/01_World/00_World.gd" id="1_h10bm"]
 [ext_resource type="Texture2D" uid="uid://dcmey5uruwk0w" path="res://assets/01_Textures/00_Grass/gwass.png" id="1_x1cky"]
 [ext_resource type="PackedScene" uid="uid://dvdaacul787gp" path="res://source/02_Actors/00_Player/00_Player.tscn" id="2_obxno"]
+
+[sub_resource type="Environment" id="Environment_7k21s"]
+glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apb88"]
 albedo_texture = ExtResource("1_x1cky")
@@ -15,6 +18,9 @@ data = PackedVector3Array(256, 0, 256, -256, 0, 256, 256, 0, -256, -256, 0, 256,
 
 [node name="WorldRoot" type="Node3D"]
 script = ExtResource("1_h10bm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7k21s")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_apb88")
